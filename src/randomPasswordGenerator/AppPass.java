@@ -25,8 +25,9 @@ public class AppPass {
         char[] passwordSymbols = allSymbols.toCharArray();
         if(length < 8 || length > 12){
             System.out.print("Неверная длина пароля, попробуйте снова: ");
-            length = input.nextInt();
-            passwordGenerator(length);
+            int lengthNew = input.nextInt();
+            passwordGenerator(lengthNew);
+            return;
         }
         char[] password = new char[length];
         for(int i = 0; i < length; i++){
@@ -34,7 +35,10 @@ public class AppPass {
         }
         if(isCorrect(password, symbols) &&  isCorrect(password, upperSymbols) && isCorrect(password, numbers) && isCorrect(password, special)){
             System.out.println(password);
-        }else passwordGenerator(length);
+        }else{
+            passwordGenerator(length);
+            return;
+        }
     }
     public static void main(String[] args){
         System.out.print("Введите длину пароля (от 8 до 12): ");
