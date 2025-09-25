@@ -20,6 +20,10 @@ public class AppHangman{
             System.out.print("Оставшееся количество жизней: " + hp +
                     "\n" + "Введите букву: ");
             String inChar = input.next();
+            if(inChar.length() > 1){
+                System.out.print("Можно ввести только одну букву!" + '\n' + "Ввод: ");
+                inChar = input.next();
+            }
             char[] i = inChar.toCharArray();
             for(int x = 0; x < wordOfGame.length(); x++){
                 if(i[0] == wordToChar[x]){
